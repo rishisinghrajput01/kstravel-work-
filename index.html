@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1F2A6B">
+<title>Quotation &amp; Invoice Generator · KS Travel Hub</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='47' fill='%231F2A6B'/%3E%3Crect x='30' y='31' width='12' height='42' fill='%23fff'/%3E%3Cpolygon points='42,49 60,31 75,31 42,65' fill='%23fff'/%3E%3Cpolygon points='48,59 57,49.5 77,73 62,73' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/doc.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<header class="bar">
+  <div class="bar__brand" id="brand"></div>
+  <div class="bar__title">Quotation &amp; Invoice Generator</div>
+  <div class="bar__actions">
+    <button type="button" class="btn btn--ghost" id="btn-reset">Reset</button>
+    <button type="button" class="btn btn--primary" id="btn-pdf">Download PDF</button>
+  </div>
+</header>
+
+<main class="app">
+  <aside class="panel" aria-label="Details form">
+    <div id="checks" class="checks" role="status"></div>
+    <form id="form" autocomplete="off" novalidate></form>
+    <details class="settings" id="settings">
+      <summary>Company settings <span>bank details &amp; booking policy, saved on this device</span></summary>
+      <div id="settings-body"></div>
+    </details>
+    <p class="panel__note">Nothing you type leaves this browser. Use <b>Download PDF</b>, then in the print window choose <b>Save as PDF</b>.</p>
+  </aside>
+
+  <section class="stage" aria-label="Document preview">
+    <div id="preview" class="doc"></div>
+  </section>
+</main>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
