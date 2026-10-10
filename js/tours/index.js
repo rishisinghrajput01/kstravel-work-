@@ -10,8 +10,11 @@ import rishikesh from './rishikesh.js';
 import goa from './goa.js';
 import shimla from './shimla.js';
 import manali from './manali.js';
+import indore from './indore.js';
+import ujjain from './ujjain.js';
+import mahakaleshwar from './mahakaleshwar.js';
 
 // Add new tours here. Each tour file follows the shape of andaman.js.
-export const TOURS = { andaman, 'darjeeling-gangtok': darjeelingGangtok, kerala, meghalaya, rajasthan, kashmir, ladakh, kutch, rishikesh, goa, shimla, manali };
+export const TOURS = { andaman, 'darjeeling-gangtok': darjeelingGangtok, kerala, meghalaya, rajasthan, kashmir, ladakh, kutch, rishikesh, goa, shimla, manali, indore, ujjain, mahakaleshwar };
 export const TOUR_LIST = Object.values(TOURS).map((t) => ({ id: t.id, name: t.name }));
 export const getTour = (id) => TOURS[id] || TOURS.andaman;

@@ -1,5 +1,5 @@
 // Tour definition: Rishikesh & Mussoorie, Ganga & Mussoorie, 3 Nights / 4 Days.
-// Same shape as andaman.js. Hotel names are placeholders: set the real ones per quote under "Hotels".
+// Same shape as andaman.js.
 
 const IMG = 'img/rishikesh/';
 
@@ -32,9 +32,9 @@ export default {
   ],
 
   hotels: [
-    { name: '[Rishikesh hotel name]', nameIsPlaceholder: true, category: 'Riverside', place: 'Rishikesh', room: 'Deluxe room', nights: 2, inDay: 1, outDay: 3,
+    { name: 'Ganga Kinare Riverside Resort', category: 'Riverside', place: 'Rishikesh', room: 'Deluxe room', nights: 2, inDay: 1, outDay: 3,
       photo: { src: IMG + 'hotel1.jpg', credit: 'Deepanshu Mittall / Wikimedia Commons' } },
-    { name: '[Mussoorie hotel name]', nameIsPlaceholder: true, category: 'Hillside', place: 'Mussoorie', room: 'Deluxe room', nights: 1, inDay: 3, outDay: 4,
+    { name: 'Hotel Padmini Nivas', category: 'Hillside', place: 'Mussoorie', room: 'Deluxe room', nights: 1, inDay: 3, outDay: 4,
       photo: { src: IMG + 'hotel2.jpg', credit: 'Harshanh / Wikimedia Commons' } },
   ],
   staysIntro: 'A riverside hotel in Rishikesh and a hillside hotel in Mussoorie, with breakfast and dinner included at each. Room upgrades can be quoted on request.',

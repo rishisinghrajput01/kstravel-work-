@@ -1,7 +1,7 @@
 import { payBlock } from './pay.js';
 import { html, raw } from './html.js';
 import { logo } from './logo.js';
-import { WHY_US, TERMS_HOTELS } from './config.js';
+import { WHY_US, TERMS_HOTELS, POLICY } from './config.js';
 import { inr0, inrAuto, fmtFull } from './format.js';
 
 const CHECK = raw('<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#E2F1FA"/><path d="M4.6 8.3l2.2 2.2 4.6-4.8" fill="none" stroke="#1F2A6B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>');
@@ -168,7 +168,6 @@ function priceAndBooking(m, i, total) {
   if (q.mode === 'extra') taxRow = html`<tr class="tax"><td colspan="3">GST @ ${q.rate}%</td><td class="amt">${inrAuto(q.gst)}</td></tr>`;
   else if (q.mode === 'included') taxRow = html`<tr class="tax"><td colspan="3">Taxes (GST)</td><td><span class="chip">INCLUDED IN PRICE</span></td></tr>`;
   else taxRow = html`<tr class="tax"><td colspan="3">Taxes (GST)</td><td><span class="chip">[TO BE CONFIRMED]</span></td></tr>`;
-  const bal = st.balanceDays ? `${st.balanceDays} days before travel` : '[__] days before travel';
   return page('', html`
     ${header(m, 'hdr--6')}
     ${title('PRICE SUMMARY & BOOKING', 'Your price, and how to book', 'title--6')}
@@ -179,11 +178,6 @@ function priceAndBooking(m, i, total) {
         <span class="ptotal__v">${inrAuto(q.total)}</span></div>
     </div>
     <div class="card book"><h2 class="h2">Confirm your booking</h2>
-      <div class="book__tiles">
-        <div class="tile"><span class="lbl">BOOKING DEPOSIT</span><b>${m.deposit ? inr0(m.deposit) : 'INR [TO BE ADDED]'}</b></div>
-        <div class="tile"><span class="lbl">BALANCE DUE</span><b>${bal}</b></div>
-        <div class="tile"><span class="lbl">QUOTE VALID UNTIL</span><b>${m.validUntil ? fmtFull(m.validUntil) : '[DATE TO BE ADDED]'}</b></div>
-      </div>
       ${payBlock(m, 'PAY TO')}
       <div class="warn"><b>Pay only to the company's official account.</b><span>Unsure? Call ${m.company.phone} before paying.</span></div>
     </div>
@@ -193,39 +187,34 @@ function priceAndBooking(m, i, total) {
     ${footer(m, i, total)}`);
 }
 
-// Policy values come from Company settings. Blank ones stay as visible [placeholders].
+// Booking policy is the same for every booking, so it is fixed (see POLICY in config.js).
 function terms(m) {
-  const t = m.tour, p = m.settings;
-  const b = (v, fb) => html`<b>${v !== '' && v != null ? v : fb}</b>`;
-  const d1 = p.cancelDays1 !== '' ? Number(p.cancelDays1) : null;
-  const tier2Hi = d1 !== null && !Number.isNaN(d1) ? d1 - 1 : '[__]';
-  const pct = (v) => (v !== '' && v != null ? `${v}%` : '[__]%');
-  const missing = [m.deposit, p.balanceDays, p.cancelDays1, p.cancelPct1, p.cancelDays2, p.cancelPct2, p.cancelPct3, p.reschedDays, p.reschedCharge, m.validUntil]
-    .some((v) => v === '' || v == null || v === 0);
+  const t = m.tour;
   const sec = (h, lis) => html`<section><h2>${h}</h2><ul>${lis.map((l) => html`<li>${l}</li>`)}</ul></section>`;
+  const [c1, c2, c3] = POLICY.cancelTiers;
   return page('page--terms', html`
     ${header(m, 'hdr--6')}
     <div class="title title--terms"><div class="eyebrow">TERMS</div><h1 class="h1">Booking terms</h1>
-      <p class="lead">A short summary of how bookings work.${missing ? ` Values in [brackets] are set by ${m.company.shortName.replace(' (OPC) Private Limited', '')} before this quotation is sent.` : ''}</p></div>
+      <p class="lead">A short summary of how bookings work.</p></div>
     <div class="terms">
       ${sec('Payment', [
-        html`A booking deposit of ${b(m.deposit ? inr0(m.deposit) : '', '[INR ____ / __% of the package]')} confirms your reservation.`,
-        html`The balance is due ${b(p.balanceDays !== '' ? `${p.balanceDays} days` : '', '[__] days')} before the travel date.`,
+        html`A booking deposit of <b>${POLICY.depositPct}% of the package</b> confirms your reservation.`,
+        html`The balance is due <b>${POLICY.balanceDays} days</b> before the travel date.`,
         'Hotels, ferries and boats are booked once the deposit is received.',
         "Pay only to the company's official account. A GST invoice is issued for every payment."])}
       ${sec('Cancellation', [
         `Please send cancellations in writing to ${m.company.email}.`,
-        html`${b(p.cancelDays1, '[__]')} days or more before travel: ${b(pct(p.cancelPct1))} of the package cost is charged.`,
-        html`${b(p.cancelDays2, '[__]')} to ${b(tier2Hi)} days before travel: ${b(pct(p.cancelPct2))} is charged.`,
-        html`Less than ${b(p.cancelDays2, '[__]')} days before travel, or no-show: ${b(pct(p.cancelPct3))} is charged.`,
+        html`<b>${c1.text}</b>: <b>${c1.pct}%</b> of the package cost is charged.`,
+        html`<b>${c2.text}</b>: <b>${c2.pct}%</b> is charged.`,
+        html`<b>${c3.text}</b>: <b>${c3.pct}%</b> is charged.`,
         "Issued ferry and boat tickets follow the operator's own refund rules."])}
       ${sec('Rescheduling', [
         'Date changes depend on availability and any difference in hotel, ferry or seasonal rates.',
-        html`Requests ${b(p.reschedDays, '[__]')} days or more before travel: ${b(p.reschedCharge, '[no charge / INR ____]')}.`,
-        html`Changes within ${b(p.reschedDays, '[__]')} days of travel are treated as a cancellation and a new booking.`])}
+        html`Requests <b>${POLICY.reschedFreeDays} days or more</b> before travel: <b>no charge</b>.`,
+        html`Changes within <b>${POLICY.reschedFreeDays} days</b> of travel are treated as a cancellation and a new booking.`])}
       ${sec('Hotels', TERMS_HOTELS)}
       ${sec('Availability', [
-        html`This quotation is valid until ${b(m.validUntil ? fmtFull(m.validUntil) : '', '[DATE]')}. Rooms and seats are not held until the deposit is paid.`,
+        'This quotation is valid until last date of booking open. Rooms and seats are not held until the deposit is paid.',
         ...t.availabilityNotes])}
     </div>
     <div class="band">

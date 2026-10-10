@@ -1,5 +1,5 @@
 // Tour definition: Manali & Solang Valley, Snowline Escape, 4 Nights / 5 Days.
-// Same shape as andaman.js. The hotel name is a placeholder: set the real one per quote under "Hotels".
+// Same shape as andaman.js.
 
 const IMG = 'img/manali/';
 
@@ -31,7 +31,7 @@ export default {
   ],
 
   hotels: [
-    { name: '[Manali hotel name]', nameIsPlaceholder: true, stars: 3, place: 'Manali', room: 'Standard', nights: 4, inDay: 1, outDay: 5,
+    { name: 'Snow Valley Resorts', stars: 3, place: 'Manali', room: 'Standard', nights: 4, inDay: 1, outDay: 5,
       photo: { src: IMG + 'hotel1.jpg', credit: 'Ajisi / Wikimedia Commons' } },
   ],
   staysIntro: 'Four nights in a 3-star hotel on twin sharing, with breakfast and dinner included. Room upgrades can be quoted on request.',

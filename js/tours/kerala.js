@@ -1,5 +1,5 @@
 // Tour definition: Kerala, Backwaters & Hills, 5 Nights / 6 Days.
-// Same shape as andaman.js. Hotel names are placeholders: set the real ones per quote under "Hotels".
+// Same shape as andaman.js.
 
 const IMG = 'img/kerala/';
 
@@ -34,13 +34,13 @@ export default {
   ],
 
   hotels: [
-    { name: '[Kochi hotel name]', nameIsPlaceholder: true, stars: 3, place: 'Fort Kochi', room: 'Standard', nights: 1, inDay: 1, outDay: 2,
+    { name: 'Hotel Fort House', stars: 3, place: 'Fort Kochi', room: 'Standard', nights: 1, inDay: 1, outDay: 2,
       photo: { src: IMG + 'hotel1.jpg', credit: 'Vis M / Wikimedia Commons' } },
-    { name: '[Munnar hotel name]', nameIsPlaceholder: true, stars: 3, place: 'Munnar', room: 'Standard', nights: 2, inDay: 2, outDay: 4,
+    { name: 'KTDC Tea County', stars: 3, place: 'Munnar', room: 'Standard', nights: 2, inDay: 2, outDay: 4,
       photo: { src: IMG + 'hotel2.jpg', credit: 'Ingo Mehling / Wikimedia Commons' } },
-    { name: '[Thekkady hotel name]', nameIsPlaceholder: true, stars: 3, place: 'Thekkady', room: 'Standard', nights: 1, inDay: 4, outDay: 5,
+    { name: 'Treebo Trend Kumily Gate', stars: 3, place: 'Thekkady', room: 'Standard', nights: 1, inDay: 4, outDay: 5,
       photo: { src: IMG + 'hotel3.jpg', credit: 'Sreedevi512 / Wikimedia Commons' } },
-    { name: '[Houseboat name]', nameIsPlaceholder: true, category: 'Deluxe houseboat', place: 'Alleppey backwaters', room: 'Private AC cabin',
+    { name: 'Spice Routes Houseboat', category: 'Deluxe houseboat', place: 'Alleppey backwaters', room: 'Private AC cabin',
       meals: 'All meals', nights: 1, inDay: 5, outDay: 6,
       photo: { src: IMG + 'hotel4.jpg', credit: 'Paul Arps / Wikimedia Commons' } },
   ],

@@ -1,5 +1,5 @@
 // Tour definition: Goa, Two Coastlines, 3 Nights / 4 Days.
-// Same shape as andaman.js. The hotel name is a placeholder: set the real one per quote under "Hotels".
+// Same shape as andaman.js.
 
 const IMG = 'img/goa/';
 
@@ -31,7 +31,7 @@ export default {
   ],
 
   hotels: [
-    { name: '[Goa hotel name]', nameIsPlaceholder: true, category: 'Beach-side hotel', place: 'North Goa', room: 'Standard room', nights: 3, inDay: 1, outDay: 4,
+    { name: 'GTDC Calangute Residency', category: 'Beach-side hotel', place: 'North Goa', room: 'Standard room', nights: 3, inDay: 1, outDay: 4,
       photo: { src: IMG + 'hotel1.jpg', credit: 'Sri Chinnu / Wikimedia Commons' } },
   ],
   staysIntro: 'Three nights in a beach-side hotel on twin sharing, with daily breakfast. Room upgrades can be quoted on request.',

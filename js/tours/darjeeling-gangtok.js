@@ -33,11 +33,10 @@ export default {
     { place: 'Gangtok', nights: 3, from: 3, to: 6, end: ' · drive to airport' },
   ],
 
-  // Names are placeholders: set the real hotel under "Hotels" in the form for each quotation.
   hotels: [
-    { name: '[Darjeeling hotel name]', nameIsPlaceholder: true, stars: 3, place: 'Darjeeling', room: 'Standard', nights: 2, inDay: 1, outDay: 3,
+    { name: 'Hotel Seven Seventeen', stars: 3, place: 'Darjeeling', room: 'Standard', nights: 2, inDay: 1, outDay: 3,
       photo: { src: IMG + 'hotel1.jpg', credit: 'Syed Sajidul Islam / Wikimedia Commons' } },
-    { name: '[Gangtok hotel name]', nameIsPlaceholder: true, stars: 3, place: 'Gangtok', room: 'Standard', nights: 3, inDay: 3, outDay: 6,
+    { name: 'Hotel Tashi Delek', stars: 3, place: 'Gangtok', room: 'Standard', nights: 3, inDay: 3, outDay: 6,
       photo: { src: IMG + 'hotel2.jpg', credit: 'Bernard Gagnon / Wikimedia Commons' } },
   ],
   staysIntro: 'Two 3-star hotels, with breakfast and dinner included at each. Room upgrades can be quoted on request.',

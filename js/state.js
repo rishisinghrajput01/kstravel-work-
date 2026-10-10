@@ -7,7 +7,6 @@ export const DEFAULT_STATE = () => ({
   coordinator: '', coordinatorPhone: '+91 84015 90704',
   quoteNo: 'KST-Q-2026-0117', tripId: 'KST-AND-2611', packageId: 'AND-5N6D-STD',
   perAdult: '25000', gstMode: 'tbc', gstRate: '5',
-  deposit: '', validUntil: '',
   invoiceNo: 'KSTH/2026-27/0001', invoiceDate: toISO(new Date()), dueDate: '',
   billName: '', billAddress: '', custGstin: '', supply: 'intra', supplyState: '',
   sac: '', itemDesc: '', advance: '20000', advanceDate: '', advanceMode: 'UPI', gstConfirmed: false,

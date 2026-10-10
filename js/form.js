@@ -1,15 +1,10 @@
 // Declarative form: one list describes every input, which document it applies to,
 // and where its value lives. buildForm() makes the DOM; sync() shows/hides fields.
-import { TOUR_LIST, TOURS, getTour } from './tours/index.js';
+import { TOUR_LIST, getTour } from './tours/index.js';
 import { DEMO_SETTINGS, COMPANY_SETTINGS_DEFAULT } from './config.js';
 
 const isQ = (s) => s.docType === 'quotation';
 const isI = (s) => s.docType === 'invoice';
-
-const hotelFields = Object.values(TOURS).flatMap((t) => t.hotels.map((h, i) => ({
-  k: `hotelName_${t.id}_${i}`, t: 'text', label: `Hotel ${i + 1}: ${h.place} (${h.nights} night${h.nights === 1 ? '' : 's'})`,
-  ph: h.name, when: (s) => isQ(s) && s.tour === t.id,
-})));
 
 export const SECTIONS = [
   { title: 'Document', fields: [
@@ -30,17 +25,12 @@ export const SECTIONS = [
     { k: 'packageId', t: 'text', label: 'Package ID', when: isQ },
     { k: 'invoiceNo', t: 'text', label: 'Invoice number', when: isI, hint: 'Must be unique. Never reuse a number.' },
   ] },
-  { title: 'Hotels', when: isQ, hint: 'Leave blank to use the name shown in grey.', fields: hotelFields },
   { title: 'Price', fields: [
     { k: 'perAdult', t: 'number', label: 'Price per adult (INR)', min: 0, step: 500, hint: 'price' },
     { k: 'gstMode', t: 'select', label: 'GST on the quotation', when: isQ,
       opts: [['tbc', 'To be confirmed'], ['included', 'Included in the price'], ['extra', 'Added on top of the price']] },
     { k: 'gstRate', t: 'number', label: 'GST rate (%)', min: 0, max: 40, step: 0.5,
       when: (s) => isI(s) || s.gstMode === 'extra', hint: 'Placeholder 5%. Confirm the correct rate with your accountant.' },
-  ] },
-  { title: 'Booking details', when: isQ, fields: [
-    { k: 'deposit', t: 'number', label: 'Booking deposit (INR)', min: 0, step: 500 },
-    { k: 'validUntil', t: 'date', label: 'Quote valid until' },
   ] },
   { title: 'Invoice details', when: isI, fields: [
     { k: 'invoiceDate', t: 'date', label: 'Invoice date' },
@@ -64,12 +54,6 @@ export const SETTINGS_FIELDS = [
   { k: 'accountName', label: 'Account name' }, { k: 'bankName', label: 'Bank & branch' },
   { k: 'accountNumber', label: 'Account number' }, { k: 'ifsc', label: 'IFSC' }, { k: 'upi', label: 'UPI ID' },
   { qr: true },
-  { h: 'Booking policy (appears in the terms)' },
-  { k: 'balanceDays', label: 'Balance due, days before travel', num: true },
-  { row: [['cancelDays1', 'Cancel: days or more before'], ['cancelPct1', '% charged']] },
-  { row: [['cancelDays2', 'Next tier from (days)'], ['cancelPct2', '% charged']] },
-  { k: 'cancelPct3', label: 'Less than that, or no-show: % charged', num: true },
-  { row: [['reschedDays', 'Reschedule: days or more before'], ['reschedCharge', 'Charge (e.g. no charge)']] },
 ];
 
 const el = (tag, attrs = {}, ...kids) => {
@@ -153,9 +137,9 @@ export function buildForm(root, ctx) {
 
   // optional photo uploads
   const tour = getTour(state.tour);
-  const photoKeys = [['cover', 'Cover photo'], ...tour.hotels.map((h, i) => [`hotel${i + 1}`, `Photo of ${h.name}`])];
+  const photoKeys = [['cover', 'Cover photo']];
   const pf = el('fieldset', {}, el('legend', {}, 'Photos (optional)'));
-  pf.append(el('p', { class: 'hint', style: 'margin:0 0 10px' }, 'Uploads replace the default pictures and stay in this browser only. Use real hotel photos for real quotes.'));
+  pf.append(el('p', { class: 'hint', style: 'margin:0 0 10px' }, 'Optional. An upload replaces the default cover picture and stays in this browser only.'));
   const photoUi = [];
   photoKeys.forEach(([key, label]) => {
     const id = uid('p');

@@ -20,7 +20,8 @@ Note: Vercel's free Hobby plan is for non-commercial use; use a paid plan (or Re
 | What | Where |
 |---|---|
 | Company name, GSTIN, address | `js/config.js` → `COMPANY` |
-| Bank / UPI / QR / cancellation policy | In the app → "Company settings" (saved per browser), defaults in `js/config.js` |
+| Bank / UPI / QR | In the app → "Company settings" (saved per browser), defaults in `js/config.js` |
+| Booking policy (deposit %, balance days, cancellation tiers, rescheduling) | Fixed in `POLICY` in `js/config.js`; not editable in the app |
 | A tour's itinerary, hotels, inclusions | `js/tours/<tour>.js` |
 | Register a new tour | `js/tours/index.js` |
 | Document look | `css/doc.css` |
@@ -41,6 +42,9 @@ Default prices per adult come from the website catalogue (editable per quote in 
 - Goa, "Two Coastlines" (3N/4D, Rs 14,999)
 - Shimla, Kufri & Chail, "Hill Station Classic" (3N/4D, Rs 15,999)
 - Manali & Solang Valley, "Snowline Escape" (4N/5D, Rs 18,499)
+- Indore & Mandu (2N/3D, Rs 8,499)
+- Ujjain (2N/3D, Rs 8,999)
+- Mahakaleshwar & Omkareshwar (3N/4D, Rs 12,999)
 
 The itineraries (stops, timings, distances) are a standard plan written for these packages, not taken from the website. Check them with your operator before sending. The website itself has no per-day detail.
 
@@ -51,10 +55,10 @@ Each tour reads its pictures from `img/<tour>/`: `cover.jpg`, `day1.jpg` ... `da
 Darjeeling & Gangtok and Kerala use photos from Wikimedia Commons (CC BY, CC BY-SA or CC0). The licences require attribution, so each photo carries a small credit chip in the PDF; keep them.
 To swap in your own photos, overwrite the files with the same names and remove or change the `credit` text on that photo in the tour file. Some stay photos show the place (a view, a show), not the hotel itself; replace them with the real hotel pictures once you know the hotels.
 A tour can set `stopgapPhotos: true` to show a checklist warning while it still uses stand-ins.
-Cover and hotel photos can also be uploaded per quotation in the form.
+The cover photo can also be uploaded per quotation in the form.
 
 ## Hotel names
-Set them per quotation under "Hotels" in the form. Leave blank to use the name in the tour file.
+Fixed per tour in `js/tours/<tour>.js` (the `hotels` list); there is no hotel field in the form. The names were picked from public listings and should be confirmed with each hotel before a real booking.
 
 ## Add a new tour
 1. Copy `js/tours/andaman.js` → `js/tours/<name>.js`; edit route, hotels, days, inclusions, photos.

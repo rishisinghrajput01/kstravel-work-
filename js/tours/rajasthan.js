@@ -1,5 +1,5 @@
 // Tour definition: Rajasthan, Royal Rajasthan Circuit, 6 Nights / 7 Days.
-// Same shape as andaman.js. Hotel names are placeholders: set the real ones per quote under "Hotels".
+// Same shape as andaman.js.
 
 const IMG = 'img/rajasthan/';
 
@@ -33,11 +33,11 @@ export default {
   ],
 
   hotels: [
-    { name: '[Jaipur hotel name]', nameIsPlaceholder: true, category: 'Heritage-style', place: 'Jaipur', room: 'Deluxe room', nights: 2, inDay: 1, outDay: 3,
+    { name: 'Alsisar Haveli', category: 'Heritage-style', place: 'Jaipur', room: 'Deluxe room', nights: 2, inDay: 1, outDay: 3,
       photo: { src: IMG + 'hotel1.jpg', credit: 'Jakub Hałun / Wikimedia Commons' } },
-    { name: '[Jodhpur hotel name]', nameIsPlaceholder: true, category: 'Heritage-style', place: 'Jodhpur', room: 'Deluxe room', nights: 2, inDay: 3, outDay: 5,
-      photo: { src: IMG + 'hotel2.jpg', credit: 'Yann / Wikimedia Commons' } },
-    { name: '[Udaipur hotel name]', nameIsPlaceholder: true, category: 'Heritage-style', place: 'Udaipur', room: 'Deluxe room', nights: 2, inDay: 5, outDay: 7,
+    { name: 'Pal Haveli', category: 'Heritage-style', place: 'Jodhpur', room: 'Deluxe room', nights: 2, inDay: 3, outDay: 5,
+      photo: { src: IMG + 'hotel2.jpg', credit: 'Ishadave2204 / Wikimedia Commons' } },
+    { name: 'Jagat Niwas Palace', category: 'Heritage-style', place: 'Udaipur', room: 'Deluxe room', nights: 2, inDay: 5, outDay: 7,
       photo: { src: IMG + 'hotel3.jpg', credit: 'Jakub Hałun / Wikimedia Commons' } },
   ],
   staysIntro: 'Three heritage-style hotels, two nights in each, with breakfast and dinner included. Room upgrades can be quoted on request.',

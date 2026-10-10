@@ -1,5 +1,5 @@
 // Tour definition: Meghalaya, Living Root Country, 4 Nights / 5 Days.
-// Same shape as andaman.js. Hotel names are placeholders: set the real ones per quote under "Hotels".
+// Same shape as andaman.js.
 
 const IMG = 'img/meghalaya/';
 
@@ -32,9 +32,9 @@ export default {
   ],
 
   hotels: [
-    { name: '[Shillong hotel name]', nameIsPlaceholder: true, stars: 3, place: 'Shillong', room: 'Standard', nights: 2, inDay: 1, outDay: 3,
+    { name: 'Polo Towers', stars: 3, place: 'Shillong', room: 'Standard', nights: 2, inDay: 1, outDay: 3,
       photo: { src: IMG + 'hotel1.jpg', credit: 'ANKAN / Wikimedia Commons' } },
-    { name: '[Cherrapunji hotel name]', nameIsPlaceholder: true, stars: 3, place: 'Cherrapunji (Sohra)', room: 'Standard', nights: 2, inDay: 3, outDay: 5,
+    { name: 'Polo Orchid Resort', stars: 3, place: 'Cherrapunji (Sohra)', room: 'Standard', nights: 2, inDay: 3, outDay: 5,
       photo: { src: IMG + 'hotel2.jpg', credit: 'Chiranjeeb Baul / Wikimedia Commons' } },
   ],
   staysIntro: 'Two 3-star hotels, with breakfast and dinner included at each. Room upgrades can be quoted on request.',

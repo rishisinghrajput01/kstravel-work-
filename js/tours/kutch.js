@@ -1,5 +1,5 @@
 // Tour definition: Kutch, White Desert Weekender, 2 Nights / 3 Days.
-// Same shape as andaman.js. The tent camp name is a placeholder: set the real one per quote under "Hotels".
+// Same shape as andaman.js.
 
 const IMG = 'img/kutch/';
 
@@ -31,7 +31,7 @@ export default {
   ],
 
   hotels: [
-    { name: '[Tent City name]', nameIsPlaceholder: true, category: 'AC tent city', place: 'Dhordo, near the White Rann', room: 'Deluxe AC tent', nights: 2, inDay: 1, outDay: 3,
+    { name: 'Tent City Dhordo', category: 'AC tent city', place: 'Dhordo, near the White Rann', room: 'Deluxe AC tent', nights: 2, inDay: 1, outDay: 3,
       photo: { src: IMG + 'hotel1.jpg', credit: 'Rannrider / Wikimedia Commons' } },
   ],
   staysIntro: 'Two nights in an AC tent beside the White Rann, with all meals in Gujarati thali style.',

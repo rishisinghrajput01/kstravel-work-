@@ -1,5 +1,5 @@
 // Tour definition: Shimla, Kufri & Chail, Hill Station Classic, 3 Nights / 4 Days.
-// Same shape as andaman.js. Hotel names are placeholders: set the real ones per quote under "Hotels".
+// Same shape as andaman.js.
 
 const IMG = 'img/shimla/';
 
@@ -32,10 +32,10 @@ export default {
   ],
 
   hotels: [
-    { name: '[Shimla hotel name]', nameIsPlaceholder: true, stars: 3, place: 'Shimla', room: 'Standard', nights: 2, inDay: 1, outDay: 3,
+    { name: 'HPTDC Hotel Willy\'s Park', stars: 3, place: 'Shimla', room: 'Standard', nights: 2, inDay: 1, outDay: 3,
       photo: { src: IMG + 'hotel1.jpg', credit: 'Slyronit / Wikimedia Commons' } },
-    { name: '[Chail hotel name]', nameIsPlaceholder: true, stars: 3, place: 'Chail', room: 'Standard', nights: 1, inDay: 3, outDay: 4,
-      photo: { src: IMG + 'hotel2.jpg', credit: 'Sidnanda / Wikimedia Commons' } },
+    { name: 'Mountain View Resort', stars: 3, place: 'Chail', room: 'Standard', nights: 1, inDay: 3, outDay: 4,
+      photo: { src: IMG + 'hotel2.jpg', credit: 'Pinakpani / Wikimedia Commons' } },
   ],
   staysIntro: 'Two 3-star hotels, with breakfast and dinner included at each. Room upgrades can be quoted on request.',
   staysNote: 'Dinner is served at the hotel. Please tell your coordinator about any dietary needs before you travel.',

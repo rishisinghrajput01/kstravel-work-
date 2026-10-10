@@ -7,12 +7,7 @@ import { parseDate, addDays, fmtLong, fmtShort, fmtFull, fmtRange, round2, clamp
 export const DEFAULT_START = '2026-11-11';
 
 export function buildModel(state, settings) {
-  const base0 = getTour(state.tour);
-  // Hotel names can be set per quotation (form keys hotelName_<tour>_<n>); blank keeps the tour's own name.
-  const tour = { ...base0, hotels: base0.hotels.map((h, i) => {
-    const o = String(state[`hotelName_${base0.id}_${i}`] || '').trim();
-    return { ...h, name: o || h.name, nameIsPlaceholder: o ? false : !!h.nameIsPlaceholder };
-  }) };
+  const tour = getTour(state.tour);
   const start = parseDate(state.startDate) || parseDate(DEFAULT_START);
   const dayDate = (n) => addDays(start, n - 1);
   const adults = clamp(Math.round(Number(state.adults)) || 1, 1, 20);
@@ -47,8 +42,6 @@ export function buildModel(state, settings) {
     guest, guestShown: guest || '[Guest name]',
     adults, adultsLabel: `${adults} adult${adults === 1 ? '' : 's'}`,
     perAdult, base, quote, inv,
-    deposit: Math.max(0, Number(state.deposit) || 0),
-    validUntil: parseDate(state.validUntil),
     fmtFull,
     state,
   };

@@ -1,5 +1,5 @@
 // Tour definition: Kashmir, Valley in Full, 5 Nights / 6 Days.
-// Same shape as andaman.js. Hotel names are placeholders: set the real ones per quote under "Hotels".
+// Same shape as andaman.js.
 
 const IMG = 'img/kashmir/';
 
@@ -34,13 +34,13 @@ export default {
   ],
 
   hotels: [
-    { name: '[Houseboat name]', nameIsPlaceholder: true, category: 'Deluxe houseboat', place: 'Dal Lake, Srinagar', room: 'Private cabin', nights: 1, inDay: 1, outDay: 2,
+    { name: 'Houseboat Young Bombay', category: 'Deluxe houseboat', place: 'Dal Lake, Srinagar', room: 'Private cabin', nights: 1, inDay: 1, outDay: 2,
       photo: { src: IMG + 'hotel1.jpg', credit: 'Abid Sidiq Ahanger / Wikimedia Commons' } },
-    { name: '[Pahalgam hotel name]', nameIsPlaceholder: true, stars: 3, place: 'Pahalgam', room: 'Standard', nights: 2, inDay: 2, outDay: 4,
+    { name: 'Hotel Heevan', stars: 3, place: 'Pahalgam', room: 'Standard', nights: 2, inDay: 2, outDay: 4,
       photo: { src: IMG + 'hotel2.jpg', credit: 'Slyronit / Wikimedia Commons' } },
-    { name: '[Gulmarg hotel name]', nameIsPlaceholder: true, stars: 3, place: 'Gulmarg', room: 'Standard', nights: 1, inDay: 4, outDay: 5,
+    { name: 'Hotel Highlands Park', stars: 3, place: 'Gulmarg', room: 'Standard', nights: 1, inDay: 4, outDay: 5,
       photo: { src: IMG + 'hotel3.jpg', credit: 'Poet Shankar Gurjar / Wikimedia Commons' } },
-    { name: '[Srinagar hotel name]', nameIsPlaceholder: true, stars: 3, place: 'Srinagar', room: 'Standard', nights: 1, inDay: 5, outDay: 6,
+    { name: 'Hotel The Grand Mamta', stars: 3, place: 'Srinagar', room: 'Standard', nights: 1, inDay: 5, outDay: 6,
       photo: { src: IMG + 'hotel4.jpg', credit: 'Pradeepkjoshi / Wikimedia Commons' } },
   ],
   staysIntro: 'One night on a Dal Lake houseboat and three 3-star hotels, with breakfast and dinner included at each. Room upgrades can be quoted on request.',

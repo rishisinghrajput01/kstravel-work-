@@ -1,5 +1,5 @@
 // Tour definition: Ladakh, High Desert Circuit, 6 Nights / 7 Days.
-// Same shape as andaman.js. Hotel names are placeholders: set the real ones per quote under "Hotels".
+// Same shape as andaman.js.
 
 const IMG = 'img/ladakh/';
 
@@ -34,13 +34,13 @@ export default {
   ],
 
   hotels: [
-    { name: '[Leh hotel name]', nameIsPlaceholder: true, stars: 3, place: 'Leh', room: 'Standard', nights: 2, inDay: 1, outDay: 3,
+    { name: 'The Gawaling Ladakh', stars: 3, place: 'Leh', room: 'Standard', nights: 2, inDay: 1, outDay: 3,
       photo: { src: IMG + 'hotel1.jpg', credit: 'Sumit Das / Wikimedia Commons' } },
-    { name: '[Nubra camp or hotel name]', nameIsPlaceholder: true, category: 'Camp or hotel', place: 'Hunder, Nubra Valley', room: 'Deluxe tent or room', nights: 1, inDay: 3, outDay: 4,
+    { name: 'Nubra Ethnic Camp', category: 'Camp or hotel', place: 'Hunder, Nubra Valley', room: 'Deluxe tent or room', nights: 1, inDay: 3, outDay: 4,
       photo: { src: IMG + 'hotel2.jpg', credit: 'KennyOMG / Wikimedia Commons' } },
-    { name: '[Pangong camp name]', nameIsPlaceholder: true, category: 'Lakeside camp', place: 'Pangong Tso', room: 'Deluxe tent', nights: 1, inDay: 4, outDay: 5,
+    { name: 'Pangong Retreat Camp', category: 'Lakeside camp', place: 'Pangong Tso', room: 'Deluxe tent', nights: 1, inDay: 4, outDay: 5,
       photo: { src: IMG + 'hotel3.jpg', credit: 'McKay Savage / Wikimedia Commons' } },
-    { name: '[Leh hotel name]', nameIsPlaceholder: true, stars: 3, place: 'Leh', room: 'Standard', nights: 2, inDay: 5, outDay: 7,
+    { name: 'The Gawaling Ladakh', stars: 3, place: 'Leh', room: 'Standard', nights: 2, inDay: 5, outDay: 7,
       photo: { src: IMG + 'hotel4.jpg', credit: 'Didini Tochhawng / Wikimedia Commons' } },
   ],
   staysIntro: 'Two nights and two nights in Leh, one in the Nubra Valley and one in a lakeside camp at Pangong, with breakfast and dinner included. Rooms and tents can be upgraded on request.',

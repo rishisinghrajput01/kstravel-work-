@@ -12,14 +12,9 @@ export function computeChecks(state, settings, m, overflow) {
 
   if (isQuote) {
     if (!state.coordinator.trim()) warn('Add the trip coordinator name.');
-    if (!(m.deposit > 0)) warn('Set the booking deposit.');
-    if (!state.validUntil) warn('Set the "quote valid until" date.');
     if (state.gstMode === 'tbc') warn('GST is still "to be confirmed" on the price page.');
-    const pol = ['balanceDays', 'cancelDays1', 'cancelPct1', 'cancelDays2', 'cancelPct2', 'cancelPct3', 'reschedDays', 'reschedCharge'];
-    if (pol.some((k) => settings[k] === '' || settings[k] == null)) warn('Booking policy in Company settings is incomplete (shown as [__] in the terms).');
-    if (m.tour.hotels.some((h) => h.nameIsPlaceholder)) warn('Hotel names are placeholders. Enter the real hotels under "Hotels".');
     if (m.tour.stopgapPhotos) warn('The pictures in this tour are stand-ins (crops of the website artwork). Add real photos before sending a real quote.');
-    else info('Hotel photos are destination pictures, not the real hotels. Upload real hotel photos below before sending a real quote.');
+    else info('Hotel pictures are destination photos, not photos of the listed hotels.');
   } else {
     if (!state.invoiceNo.trim()) warn('Enter the invoice number. Never reuse one.');
     if (!state.invoiceDate) warn('Set the invoice date.');

@@ -1,6 +1,6 @@
 // Company details that appear on every document. Edit here for the permanent defaults;
-// the "Company settings" panel in the app lets the client override bank and policy
-// values in their own browser without touching code.
+// the "Company settings" panel in the app lets the client set bank and UPI details in
+// their own browser without touching code.
 
 export const COMPANY = {
   legalName: 'KS TRAVEL HUB (OPC) PRIVATE LIMITED',
@@ -15,6 +15,19 @@ export const COMPANY = {
   website: 'kstravelshub.in',
 };
 
+// Booking policy: identical for every booking, so it is fixed here and printed on the
+// terms page. Not editable in the app. Change the numbers here if the policy ever changes.
+export const POLICY = {
+  depositPct: 20,        // % of the package confirms the booking
+  balanceDays: 15,       // balance due this many days before travel
+  cancelTiers: [         // [days-before-travel range, % of package cost charged]
+    { text: '30 days or more before travel', pct: 10 },
+    { text: '15 to 29 days before travel', pct: 50 },
+    { text: 'Less than 15 days before travel, or no-show', pct: 100 },
+  ],
+  reschedFreeDays: 15,   // changes asked this many days or more ahead are free
+};
+
 // Values the company sets once. Blank = the document shows a [TO BE ADDED] placeholder
 // instead of inventing anything.
 export const COMPANY_SETTINGS_DEFAULT = {
@@ -24,11 +37,6 @@ export const COMPANY_SETTINGS_DEFAULT = {
   ifsc: '',
   upi: '',
   qrDataUrl: '',          // uploaded UPI QR image (stored in the browser)
-  balanceDays: '',        // balance due N days before travel
-  cancelDays1: '', cancelPct1: '',   // "N days or more before travel: X% charged"
-  cancelDays2: '', cancelPct2: '',   // "N to (N1-1) days before travel: X% charged"
-  cancelPct3: '',                    // "less than N2 days / no-show: X% charged"
-  reschedDays: '', reschedCharge: '', // "N days or more before travel: <charge>"
 };
 
 // Obviously fake values for demos. Applied only when the user presses "Fill demo values".
@@ -39,11 +47,6 @@ export const DEMO_SETTINGS = {
   ifsc: 'SAMP0000000',
   upi: 'sample@upi',
   qrDataUrl: '',
-  balanceDays: '15',
-  cancelDays1: '30', cancelPct1: '10',
-  cancelDays2: '15', cancelPct2: '50',
-  cancelPct3: '100',
-  reschedDays: '15', reschedCharge: 'no charge',
 };
 
 export const WHY_US = [
@@ -59,4 +62,5 @@ export const TERMS_HOTELS = [
   'Rooms are twin sharing in the categories listed.',
   'If a listed hotel is unavailable, we offer a similar-category alternative for your approval.',
   'Valid photo ID is required at check-in for every guest.',
+  'Photographs in this quotation show the destination and are for illustration only.',
 ];
